@@ -6,17 +6,18 @@
 <title>Happy 25th, Riya</title>
 <meta name="description" content="Happy 25th birthday, Guddu Gi 🎀">
 <meta name="theme-color" content="#ff4f8b">
+<link rel="preload" as="image" href="assets/riya-kurta.jpg"><link rel="preload" as="image" href="assets/riya-floral.jpg"><link rel="preload" as="image" href="assets/riya-mountains.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Caveat:wght@500;700&family=Instrument+Serif:ital@0;1&family=Silkscreen&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&display=swap" rel="stylesheet">
 <style>
 :root{
   --cream:#fff5ee; --pink:#ff4f8b; --hot:#e0245e; --rose:#ffd6e2; --mint:#a8e6c1;
   --butter:#ffd66b; --red:#e8304a; --ink:#2a1420; --lilac:#cdb9ff;
   --display:'Bricolage Grotesque',system-ui,sans-serif;
-  --serif:'Instrument Serif',Georgia,serif;
+  --serif:'Fraunces',Georgia,serif;
   --hand:'Caveat',cursive;
-  --pixel:'Silkscreen',monospace;
+  --pixel:'Bricolage Grotesque',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
@@ -25,6 +26,10 @@ html.lenis,html.lenis body{height:auto}
 body{background:var(--cream);color:var(--ink);font-family:var(--display);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 body.locked{overflow:hidden;height:100svh}
 img{display:block;max-width:100%}
+.chip,.btn,.cta,#music,.kicker,.stat .lbl,.foot,.pol .back small,.tag small{font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.sticker text{font-family:var(--display);font-weight:700;letter-spacing:.06em}
+h1,h2,h3,.l2,.g-end,.big i{font-variation-settings:'opsz' 144}
+.serif-i,#gate h1,.l2,h2 i,.g-intro h2 i,#letter .head h2,.prize h3,.g-end,#finale .big i{font-weight:600}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .pixel{font-family:var(--pixel);letter-spacing:.04em}
 section{position:relative;overflow:hidden}
@@ -55,9 +60,16 @@ section{position:relative;overflow:hidden}
 #hero{height:100svh;z-index:1;background:linear-gradient(180deg,#ffc2d6 0%,#ffe3d3 55%,#fff1e2 100%)}
 #hero .stage{position:absolute;inset:0;transform-origin:50% 40%}
 #hero canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y;cursor:grab}
-.hero-title{position:absolute;left:0;right:0;top:max(64px,9vh);text-align:center;pointer-events:none;padding:0 16px}
-.hero-title .l1{font-family:var(--display);font-weight:800;font-size:clamp(40px,9vw,128px);line-height:.85;letter-spacing:-.04em;color:var(--hot);text-transform:uppercase}
-.hero-title .l2{font-family:var(--serif);font-style:italic;font-size:clamp(84px,19vw,270px);line-height:.8;color:var(--ink);margin-top:-.04em}
+.hero-title{position:absolute;left:0;right:0;top:max(64px,8vh);text-align:center;pointer-events:none;padding:0 16px}
+.hero-title .sub{font-family:var(--hand);font-size:clamp(24px,2.6vw,36px);color:var(--ink);margin-top:.6em;transform:rotate(-2deg)}
+@media(min-aspect-ratio:1/1){.hero-title{left:6vw;right:auto;top:50%;transform:translateY(-50%);text-align:left;padding:0;width:46vw}.hero-title .l1{font-size:clamp(48px,7vw,124px)}.hero-title .l2{font-size:clamp(110px,15vw,260px)}.hero-ui{left:auto!important;right:4vw;width:52vw}}
+.tag{position:absolute;left:0;top:0;pointer-events:none;background:#fff;color:var(--ink);border-radius:18px;padding:10px 14px;font-family:var(--hand);font-size:clamp(20px,2vw,26px);line-height:1.05;box-shadow:0 8px 24px rgba(80,0,40,.18);white-space:nowrap;will-change:transform;opacity:0;transition:opacity .6s}
+.tag small{display:block;font-family:var(--display);font-size:10px;color:var(--hot);margin-top:4px}
+.tag::before{content:'';position:absolute;top:50%;width:14px;height:14px;background:#fff;transform:translateY(-50%) rotate(45deg)}
+.tag.r::before{left:-6px}.tag.c::before{top:auto;bottom:-13px;left:50%;margin-left:-7px}.tag.l::before{right:-6px}
+.tag.show{opacity:1}
+.hero-title .l1{font-family:var(--display);font-weight:800;font-size:clamp(36px,10vw,128px);line-height:.85;letter-spacing:-.04em;color:var(--hot);text-transform:uppercase}
+.hero-title .l2{font-family:var(--serif);font-style:italic;font-size:clamp(76px,22vw,270px);line-height:.85;color:var(--ink);margin-top:-.02em;letter-spacing:-.03em}
 .sticker{position:absolute;right:max(16px,6vw);top:max(70px,11vh);width:clamp(84px,13vw,150px);aspect-ratio:1;border-radius:50%;background:var(--butter);display:grid;place-items:center;transform:rotate(12deg);box-shadow:0 10px 0 rgba(42,20,32,.12);pointer-events:none}
 .sticker b{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.5vw,64px);line-height:1;color:var(--hot)}
 .sticker svg{position:absolute;inset:0;animation:spin 14s linear infinite}
@@ -70,7 +82,7 @@ section{position:relative;overflow:hidden}
 .hint{font-family:var(--hand);font-size:22px;color:var(--ink);opacity:.75}
 
 /* marquee */
-#marquee{z-index:2;background:var(--butter);padding:12vh 0;border-radius:36px 36px 0 0;margin-top:-36px}
+#marquee{z-index:2;background:var(--butter);padding:12vh 0;border-radius:36px 36px 0 0}
 .row{white-space:nowrap;font-family:var(--display);font-weight:800;font-size:clamp(64px,13vw,200px);line-height:1;letter-spacing:-.04em;text-transform:uppercase}
 .row span{display:inline-block;padding-right:.3em}
 .row.r2{font-family:var(--serif);font-style:italic;text-transform:none;font-weight:400;color:var(--hot);letter-spacing:-.01em}
@@ -108,7 +120,8 @@ section{position:relative;overflow:hidden}
 .pol.flip .card{transform:rotateY(180deg)}
 .pol .face,.pol .back{background:#fff;padding:14px 14px 0;border-radius:6px;box-shadow:0 30px 60px -20px rgba(80,10,40,.4);backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .pol .ph{aspect-ratio:4/5;overflow:hidden;background:#eee}
-.pol .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
+.pol .ph .img{width:100%;height:100%;background-size:cover;background-position:center 30%;transform:scale(1.15)}
+.pol .card{will-change:transform}
 .pol .cap{font-family:var(--hand);font-size:clamp(26px,3vw,34px);text-align:center;padding:12px 0 18px;color:var(--ink)}
 .pol .back{position:absolute;inset:0;transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;padding:28px;background:var(--rose)}
 .pol .back p{font-family:var(--hand);font-size:clamp(26px,3.2vw,34px);line-height:1.15}
@@ -129,8 +142,9 @@ section{position:relative;overflow:hidden}
 .btn:active{transform:translateY(3px)}
 .btn.alt{background:#fff;color:var(--ink)}
 .status{font-family:var(--hand);font-size:clamp(24px,3vw,32px)}
-#cake{z-index:6;background:radial-gradient(90% 70% at 50% 60%,#d7f7e3 0%,var(--mint) 70%)}
-#cake h2 i{color:#1f8a57}
+.meter{width:min(260px,70vw);height:10px;border-radius:99px;background:rgba(42,20,32,.12);overflow:hidden;display:none}.meter.on{display:block}.meter i{display:block;height:100%;transform-origin:0 50%;transform:scaleX(0);transition:transform .08s}
+#cake{z-index:6;background:radial-gradient(90% 70% at 50% 60%,#fff6cf 0%,#ffd66b 80%)}
+#cake h2 i{color:var(--red)}
 #pinata{z-index:7;background:radial-gradient(90% 70% at 50% 45%,#ffe0ec 0%,var(--lilac) 85%)}
 #pinata h2 i{color:var(--hot)}
 .prize{position:absolute;left:50%;top:50%;width:min(88vw,520px);background:var(--cream);border-radius:28px;padding:30px 26px;text-align:center;box-shadow:0 30px 80px rgba(60,0,40,.35);opacity:0;pointer-events:none;border:3px dashed var(--pink)}
@@ -150,7 +164,7 @@ section{position:relative;overflow:hidden}
 .flap{position:absolute;left:0;right:0;bottom:280px;height:0;border-left:min(46vw,320px) solid transparent;border-right:min(46vw,320px) solid transparent;border-bottom:150px solid #ff6f9f;transform-origin:50% 100%;z-index:1}
 .paper{position:relative;z-index:2;background:#fffdf8;border-radius:8px;padding:clamp(26px,5vw,52px);margin:0 4%;box-shadow:0 20px 50px -20px rgba(80,0,30,.35);background-image:repeating-linear-gradient(transparent 0 41px,rgba(224,36,94,.12) 41px 42px)}
 .paper p{font-family:var(--hand);font-size:clamp(24px,3.1vw,31px);line-height:42px;color:#3a1830}
-.paper p+p{margin-top:42px}
+.paper p{font-size:clamp(28px,3.8vw,40px)!important;line-height:52px!important}.paper{background-image:repeating-linear-gradient(transparent 0 51px,rgba(224,36,94,.14) 51px 52px)!important}.paper .sign{margin-top:26px}
 .paper .sign{text-align:right;font-weight:700;color:var(--hot)}
 .env-front{position:relative;z-index:3;height:180px;margin-top:-120px;background:linear-gradient(160deg,var(--pink),var(--hot));border-radius:0 0 12px 12px;clip-path:polygon(0 0,50% 45%,100% 0,100% 100%,0 100%);display:grid;place-items:end center;padding-bottom:22px}
 .env-front span{font-family:var(--hand);font-size:30px;color:var(--cream)}
@@ -186,15 +200,19 @@ section{position:relative;overflow:hidden}
     <div class="hero-title">
       <div class="l1" data-split>Happy Birthday</div>
       <div class="l2" data-split>Riya</div>
+      <div class="sub">Guddu Gi turns 25 ✿</div>
     </div>
     <div class="sticker"><svg viewBox="0 0 100 100"><defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#circ">31·10·2001 ✿ 31·10·2026 ✿ </textPath></text></svg><b>25</b></div>
+    <div class="tag r" id="tagRiya">← that’s YOU, Pookie!<small>mini-Riya · handmade in voxels</small></div>
+    <div class="tag c" id="tagKitty">+ your bestie 🎀</div>
     <div class="hero-ui">
+      <div class="hint">dress up mini-you 👗</div>
       <div class="chips" id="chips">
-        <button class="chip on" data-o="kurta">PINK KURTA</button>
-        <button class="chip" data-o="floral">FLORAL DRESS</button>
-        <button class="chip" data-o="blazer">TWEED BLAZER</button>
+        <button class="chip on" data-o="kurta">Pink kurta</button>
+        <button class="chip" data-o="floral">Floral dress</button>
+        <button class="chip" data-o="blazer">Tweed blazer</button>
       </div>
-      <div class="hint">drag to spin · tap to make her jump ♡</div>
+      <div class="hint" style="font-size:18px">drag to spin · tap her to make her jump ♡</div>
     </div>
   </div>
 </section>
@@ -214,7 +232,7 @@ section{position:relative;overflow:hidden}
     <div class="stat"><div class="n" id="cMins">0</div><div class="lbl">MINUTES</div></div>
     <div class="stat"><div class="n" id="cSecs">0</div><div class="lbl">SECONDS (AND COUNTING)</div></div>
   </div>
-  <div class="born">…and roughly <b id="cSmiles">0</b> smiles that ruined everyone around her ♡</div>
+  <div class="born">…and roughly <b id="cSmiles">0</b> smiles that cheered everyone around her ♡</div>
 </section>
 
 <section id="words">
@@ -234,11 +252,12 @@ section{position:relative;overflow:hidden}
 <section id="cake" class="play">
   <canvas id="cakeCanvas"></canvas>
   <div class="top">
-    <div class="kicker">STEP 1 · 25 CANDLES</div>
+    <div class="kicker">STEP 1 · YOUR HELLO KITTY CAKE</div>
     <h2>Make a <i>wish,</i><br>Pookie</h2>
   </div>
   <div class="bottom">
-    <div class="status" id="cakeStatus">25 candles still burning 🔥</div>
+    <div class="status" id="cakeStatus">25 candles burning 🔥 make a wish first!</div>
+    <div class="meter" id="meter"><i id="meterFill"></i></div>
     <div class="btns">
       <button class="btn" id="micBtn">🎤 BLOW INTO MIC</button>
       <button class="btn alt" id="blowBtn">💨 TAP TO BLOW</button>
@@ -297,7 +316,7 @@ import * as THREE from 'three';
 
 // Edit these to personalise.
 const CONFIG = {
-  from: 'Tushar',
+  from: 'Tissue',
   born: '2001-10-31T00:00:00+05:30',
   marquee1: ['Guddu Gi', '✿', 'Pookie', '✿', 'Birthday Girl', '✿', 'Twenty Five', '✿', 'Riya', '✿'],
   marquee2: ['the prettiest', '♡', 'my favourite human', '♡', 'Hello Kitty’s bestie', '♡', 'shringar supremacy', '♡'],
@@ -308,11 +327,11 @@ const CONFIG = {
   ],
   prizes: ['🍝 one date night, your pick', '🤗 unlimited hugs (no expiry)', '👑 a whole day where you’re always right', '🎀 one Hello Kitty surprise, soon'],
   letter: [
-    'My dearest Guddu Gi,',
-    'Happy 25th birthday, my Pookie. Twenty-five years ago today the world got a little brighter, and honestly it hasn’t been the same since.',
-    'You’re the girl in the pink kurta laughing like the sun owes her money, the one twirling her hair in a garden of white flowers, the one who makes mountains look like a backdrop. You are my favourite person to look at and my favourite person to talk to.',
-    'Thank you for your patience, your silly moods, your Hello Kitty heart, and that smile that fixes my worst days. I hope 25 brings you everything you’ve been quietly wishing for, and I promise to be right there cheering the loudest.',
-    'I love you, today and every 31st of October after this.',
+    'Pookie Pakode tujheeee boht boht happpiiii too youuuu,',
+    'mere meethuuu ka happppii toooo youuuu,',
+    'bleesss youuuu pookdeeee,',
+    'meree sundarrr bacheeee,',
+    'ILYYYYSMMMM. 💗',
   ],
 };
 
@@ -320,7 +339,7 @@ const isMobile = matchMedia('(max-width: 768px)').matches;
 const finePointer = matchMedia('(pointer: fine)').matches;
 const DPR = Math.min(devicePixelRatio, isMobile ? 1.75 : 2);
 const fire = (o) => window.confetti && window.confetti({ disableForReducedMotion: true, zIndex: 150, ...o });
-const PARTY = ['#ff4f8b', '#ffd66b', '#a8e6c1', '#cdb9ff', '#e8304a', '#ffffff'];
+const PARTY = ['#ff4f8b', '#ffd66b', '#ffe27a', '#cdb9ff', '#e8304a', '#ffffff'];
 
 /* ---------- audio ---------- */
 let actx, master, looping = false, musicOn = false;
@@ -490,8 +509,8 @@ function buildRiya(outfit) {
   for (let x = -4; x <= 4; x++) for (let y = 16; y <= 24; y++) for (let z = -4; z <= 4; z++) head.set(x, y, z, z <= -1 ? H() : SKIN);
   for (let x = -4; x <= 4; x++) for (let z = -4; z <= 4; z++) head.set(x, 24, z, H());
   for (const x of [-4, 4]) for (let y = 17; y <= 23; y++) for (let z = 0; z <= 4; z++) head.set(x, y, z, H());
-  for (let x = -4; x <= 4; x++) if (x !== 0) head.set(x, 23, 4, H());
-  for (const x of [-4, -3, 3, 4]) head.set(x, 22, 4, H());
+  for (let x = -4; x <= 4; x++) head.set(x, 23, 4, H());
+  for (const x of [-4, 4]) head.set(x, 22, 4, H());
   for (let x = -5; x <= 5; x++) for (let z = -5; z <= 4; z++) head.set(x, 25, z, H());
   for (const x of [-5, 5]) for (let y = 10; y <= 24; y++) for (let z = -5; z <= 1; z++) if (!(y < 12 && r() < .45)) head.set(x, y, z, H());
   for (let x = -5; x <= 5; x++) for (let y = 9; y <= 24; y++) if (!(y < 11 && r() < .4)) head.set(x, y, -5, H());
@@ -500,11 +519,11 @@ function buildRiya(outfit) {
     for (let y = 11; y <= 15; y++) head.set(s * 3, y, 2, H());
   }
   const F = (x, y, c) => head.set(x, y, 4, c);
-  F(-2, 19, EYE); F(-2, 20, EYE); F(2, 19, EYE); F(2, 20, EYE);
-  F(-3, 21, HAIRS[0]); F(-2, 21, HAIRS[0]); F(2, 21, HAIRS[0]); F(3, 21, HAIRS[0]);
+  for (const ex of [-3, 2]) { F(ex, 19, EYE); F(ex + 1, 19, EYE); F(ex, 20, EYE); F(ex + 1, 20, EYE); }
+  F(-3, 20, '#ffffff'); F(2, 20, '#ffffff');
+  F(-3, 22, '#5a3a2c'); F(-2, 22, '#5a3a2c'); F(2, 22, '#5a3a2c'); F(3, 22, '#5a3a2c');
   F(-3, 18, BLUSH); F(3, 18, BLUSH);
-  F(-2, 18, LIP); F(2, 18, LIP); F(-1, 17, '#fff'); F(0, 17, '#fff'); F(1, 17, '#fff');
-  F(-1, 16, LIP); F(0, 16, LIP); F(1, 16, LIP);
+  F(-2, 17, LIP); F(2, 17, LIP); F(-1, 16, LIP); F(0, 16, '#ffffff'); F(1, 16, LIP);
   head.set(0, 18, 5, SKIN_D);
   for (let x = -4; x <= 4; x++) head.set(x, 26, 3, x === 0 ? GOLD : (x === -4 || x === 4 || x === -1 || x === 1) ? '#1d1d22' : '#4a3340');
   for (const x of [-5, 5]) for (let z = -2; z <= 3; z++) head.set(x, 26, z, '#1d1d22');
@@ -550,7 +569,7 @@ hero.sun.shadow.mapSize.set(1024, 1024);
   const r = rng(3), v = new Vox();
   for (let x = -17; x <= 17; x++) for (let z = -12; z <= 12; z++) {
     const d = (x / 17.5) ** 2 + (z / 12.5) ** 2; if (d > 1) continue;
-    v.set(x, -1, z, pick(r, ['#9be3a5', '#8ad597', '#b0ecb8', '#93dc9f']));
+    v.set(x, -1, z, pick(r, ['#ffb3cf', '#ffc4d8', '#ffa6c6', '#ffd0e0']));
     const depth = Math.floor((1 - d) * 7) + 1;
     for (let k = 1; k <= depth; k++) v.set(x, -1 - k, z, k === 1 ? '#b97a4c' : pick(r, ['#c98b5a', '#d79a68', '#c08155']));
     if (r() < .07 && !(x > -16 && x < 7 && z > -4 && z < 5)) v.set(x, 0, z, r() < .6 ? '#ffffff' : '#ffb3c7');
@@ -559,15 +578,15 @@ hero.sun.shadow.mapSize.set(1024, 1024);
   for (let x = -2; x <= 2; x++) for (let z = -2; z <= 2; z++) for (let y = 0; y <= 2; y++) v.set(cx + x, y, cz + z, y === 2 ? '#ffffff' : '#ffb3c7');
   for (let x = -2; x <= 2; x++) if (r() < .6) v.set(cx + x, 1, cz + 3, '#ffffff');
   for (let x = -1; x <= 1; x++) for (let z = -1; z <= 1; z++) for (let y = 3; y <= 4; y++) v.set(cx + x, y, cz + z, y === 4 ? '#ff8fb6' : '#fff2f6');
-  v.set(cx - 1, 5, cz, '#a8e6c1'); v.set(cx + 1, 5, cz, '#cdb9ff'); v.set(cx - 1, 6, cz, '#ffcf3a'); v.set(cx + 1, 6, cz, '#ffcf3a');
+  v.set(cx - 1, 5, cz, '#ffe27a'); v.set(cx + 1, 5, cz, '#cdb9ff'); v.set(cx - 1, 6, cz, '#ffcf3a'); v.set(cx + 1, 6, cz, '#ffcf3a');
   const gift = (gx, gz, s, c, rc) => { for (let x = 0; x < s; x++) for (let y = 0; y < s; y++) for (let z = 0; z < s; z++) v.set(gx + x, y, gz + z, (x === (s >> 1) || z === (s >> 1)) ? rc : c); v.set(gx + (s >> 1), s, gz + (s >> 1), rc); };
-  gift(-15, 5, 3, '#ffd66b', '#e8304a'); gift(13, -4, 3, '#a8e6c1', '#ff4f8b'); gift(-6, 7, 2, '#cdb9ff', '#ffffff');
+  gift(-15, 5, 3, '#ffd66b', '#e8304a'); gift(13, -4, 3, '#ffe27a', '#ff4f8b'); gift(-6, 7, 2, '#cdb9ff', '#ffffff');
   const isl = v.build(voxMat); isl.castShadow = false; world.add(isl);
 }
 let riya = buildRiya('kurta'); riya.position.set(2, 0, 0); world.add(riya);
-const kitty = buildKitty(); const kittyG = new THREE.Group(); kittyG.add(kitty); kittyG.position.set(-11.5, 0, 1); kittyG.scale.setScalar(.85); kittyG.rotation.y = .35; world.add(kittyG);
+const kitty = buildKitty(); const kittyG = new THREE.Group(); kittyG.add(kitty); kittyG.position.set(-15, 0, 2); kittyG.scale.setScalar(.85); kittyG.rotation.y = .35; world.add(kittyG);
 const balloons = [];
-[['#ff4f8b', -16, 20, -6], ['#ffd66b', -12, 25, -8], ['#a8e6c1', 15, 22, -6], ['#cdb9ff', 18, 17, -3], ['#e8304a', 12, 27, -9]].forEach(([c, x, y, z], i) => {
+[['#ff4f8b', -16, 20, -6], ['#ffd66b', -12, 25, -8], ['#ffe27a', 15, 22, -6], ['#cdb9ff', 18, 17, -3], ['#e8304a', 12, 27, -9]].forEach(([c, x, y, z], i) => {
   const b = new THREE.Group();
   const s = new THREE.Mesh(new THREE.SphereGeometry(1.8, 24, 18), new THREE.MeshStandardMaterial({ color: c, roughness: .35 }));
   s.scale.y = 1.15; b.add(s);
@@ -577,11 +596,12 @@ const balloons = [];
 });
 const heroTarget = new THREE.Vector3();
 hero.onResize = (w, h) => {
-  const a = w / h, halfW = a < .8 ? 15 : 27, halfH = a < .8 ? 30 : 26;
+  const a = w / h, halfW = a < 1 ? 15 : 22, halfH = a < 1 ? 27 : 24;
   const tan = Math.tan(THREE.MathUtils.degToRad(hero.camera.fov / 2));
   const visH = 2 * Math.max(halfH / tan, halfW / (tan * a)) * tan;
-  heroTarget.set(0, 12 + visH * (a < .8 ? .24 : .2), 0);
+  heroTarget.set(0, a < 1 ? 13 : 14, 0);
   fitCamera(hero.camera, halfW, halfH, heroTarget, new THREE.Vector3(0, .22, 1));
+  if (a >= 1) hero.camera.setViewOffset(w, h, -w * .2, 0, w, h); else hero.camera.setViewOffset(w, h, 0, -h * .14, w, h);
 };
 hero.onResize(hero.canvas.clientWidth, hero.canvas.clientHeight);
 let drag = null, rotOff = 0, rotVel = 0, jumpT = 0;
@@ -596,6 +616,16 @@ addEventListener('pointerup', (e) => {
   drag = null; hero.canvas.style.cursor = 'grab';
 });
 addEventListener('pointercancel', () => drag = null);
+const tagRiya = document.getElementById('tagRiya'), tagKitty = document.getElementById('tagKitty'), tv = new THREE.Vector3();
+function placeTag(el, obj, x, y, z, side) {
+  tv.set(x, y, z); obj.localToWorld(tv); tv.project(hero.camera);
+  const W = hero.canvas.clientWidth, Hh = hero.canvas.clientHeight, ew = el.offsetWidth;
+  let px = (tv.x * .5 + .5) * W, py = (-tv.y * .5 + .5) * Hh;
+  if (side === 'l') px -= ew; if (side === 'c') px -= ew / 2;
+  px = Math.max(8, Math.min(W - ew - 8, px));
+  el.style.transform = side === 'c' ? `translate(${px}px,${py}px) translateY(-100%)` : `translate(${px}px,${py}px) translateY(-50%)`;
+  el.style.visibility = scrollY > innerHeight * .25 ? 'hidden' : '';
+}
 hero.update = (dt, t) => {
   if (!drag) { rotVel *= .94; rotOff += rotVel; }
   world.rotation.y = Math.sin(t * .35) * .32 + rotOff;
@@ -607,6 +637,7 @@ hero.update = (dt, t) => {
   armLG.rotation.x = Math.sin(t * 2.2) * .1;
   armRG.rotation.z = jumpT > 0 ? 2.6 + Math.sin(t * 16) * .35 : THREE.MathUtils.lerp(armRG.rotation.z, Math.sin(t * 2.2) * .06, .1);
   kittyG.position.y = Math.abs(Math.sin(t * 2.6)) * .5; kittyG.rotation.z = Math.sin(t * 1.7) * .05;
+  placeTag(tagRiya, riya, 6.5, 22, 0, 'r'); placeTag(tagKitty, kittyG, 0, 21, 0, 'c');
   balloons.forEach((b) => { b.position.y = b.userData.y + Math.sin(t * 1.2 + b.userData.ph) * .8; b.rotation.z = Math.sin(t * .9 + b.userData.ph) * .12; });
 };
 document.getElementById('chips').addEventListener('click', (e) => {
@@ -617,96 +648,154 @@ document.getElementById('chips').addEventListener('click', (e) => {
   sfx('yay'); fire({ particleCount: 60, spread: 90, origin: { y: .7 }, colors: PARTY });
 });
 
-/* ---------- cake ---------- */
+/* ---------- hello kitty cake ---------- */
 const cake = makeStage(document.getElementById('cakeCanvas'));
 const cakeG = new THREE.Group(); cake.scene.add(cakeG);
+const std = (color, roughness = .45) => new THREE.MeshStandardMaterial({ color, roughness });
+const BASE_R = 3, BASE_H = 1.9;
 {
-  const c = document.createElement('canvas'); c.width = 256; c.height = 8; const x = c.getContext('2d');
-  for (let i = 0; i < 16; i++) { x.fillStyle = i % 2 ? '#e9fff1' : '#58c58b'; x.fillRect(i * 16, 0, 16, 8); }
-  const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
-  const liner = new THREE.Mesh(new THREE.CylinderGeometry(2.3, 1.75, 2.6, 48), new THREE.MeshStandardMaterial({ map: tex, roughness: .6 }));
-  liner.position.y = 1.3; cakeG.add(liner);
-  const plate = new THREE.Mesh(new THREE.CylinderGeometry(3.4, 3.2, .25, 48), new THREE.MeshStandardMaterial({ color: '#ffffff', roughness: .3 }));
-  plate.position.y = -.12; cakeG.add(plate);
-  const fm = new THREE.MeshStandardMaterial({ color: '#ffb3cf', roughness: .45 });
-  [[2.05, .62, 2.85], [1.55, .55, 3.6], [1.0, .48, 4.25]].forEach(([R, tb, y]) => { const t = new THREE.Mesh(new THREE.TorusGeometry(R, tb, 18, 48), fm); t.rotation.x = Math.PI / 2; t.position.y = y; cakeG.add(t); });
-  const cap = new THREE.Mesh(new THREE.SphereGeometry(.6, 24, 16), fm); cap.position.y = 4.75; cakeG.add(cap);
-  const fill = new THREE.Mesh(new THREE.CylinderGeometry(1.9, 2.2, 1.6, 32), fm); fill.position.y = 3.2; cakeG.add(fill);
-  const r = rng(5), sg = new THREE.BoxGeometry(.08, .08, .22);
-  for (let i = 0; i < 120; i++) {
-    const a = r() * Math.PI * 2, lvl = Math.floor(r() * 3), R = [2.05, 1.55, 1.0][lvl] + (r() - .3) * .5, y = [2.85, 3.6, 4.25][lvl] + .4 + r() * .2;
-    const s = new THREE.Mesh(sg, new THREE.MeshStandardMaterial({ color: pick(r, PARTY) })); s.position.set(Math.cos(a) * R, y, Math.sin(a) * R); s.rotation.set(r() * 3, r() * 3, r() * 3); cakeG.add(s);
+  const plate = new THREE.Mesh(new THREE.CylinderGeometry(3.8, 3.6, .22, 64), std('#ffffff', .25)); plate.position.y = -.11; cakeG.add(plate);
+  const base = new THREE.Mesh(new THREE.CylinderGeometry(BASE_R, BASE_R, BASE_H, 64), std('#ffc4d8')); base.position.y = BASE_H / 2; cakeG.add(base);
+  const top = new THREE.Mesh(new THREE.CylinderGeometry(BASE_R - .02, BASE_R - .02, .08, 64), std('#ffd3e2')); top.position.y = BASE_H; cakeG.add(top);
+  const bead = new THREE.SphereGeometry(.17, 10, 8), wm = std('#ffffff', .35);
+  for (const y of [.12, BASE_H]) for (let i = 0; i < 56; i++) { const a = i / 56 * Math.PI * 2, b = new THREE.Mesh(bead, wm); b.position.set(Math.cos(a) * BASE_R, y, Math.sin(a) * BASE_R); cakeG.add(b); }
+  const dot = new THREE.SphereGeometry(.13, 10, 8), dm = std('#ffffff', .35);
+  for (let row = 0; row < 2; row++) for (let i = 0; i < 18; i++) {
+    const a = (i + row * .5) / 18 * Math.PI * 2, d = new THREE.Mesh(dot, dm);
+    d.position.set(Math.cos(a) * (BASE_R + .02), .65 + row * .6, Math.sin(a) * (BASE_R + .02)); d.scale.set(1, 1, .4); d.lookAt(d.position.clone().multiplyScalar(2)); cakeG.add(d);
   }
-  const bow = new THREE.Group(), bm = new THREE.MeshStandardMaterial({ color: '#e8304a', roughness: .5 });
-  for (const s of [-1, 1]) { const l = new THREE.Mesh(new THREE.SphereGeometry(.42, 16, 12), bm); l.scale.set(1.3, .9, .6); l.position.x = s * .45; l.rotation.z = s * -.4; bow.add(l); }
-  const k = new THREE.Mesh(new THREE.SphereGeometry(.2, 12, 10), bm); bow.add(k); bow.position.set(0, 5.45, 0); cakeG.add(bow);
+  const bm = std('#e8304a', .5);
+  for (let i = 0; i < 6; i++) {
+    const a = i / 6 * Math.PI * 2 + .26, g = new THREE.Group();
+    for (const s of [-1, 1]) { const l = new THREE.Mesh(new THREE.SphereGeometry(.24, 14, 10), bm); l.scale.set(1.25, .85, .5); l.position.x = s * .25; l.rotation.z = s * -.35; g.add(l); }
+    g.add(new THREE.Mesh(new THREE.SphereGeometry(.11, 10, 8), bm));
+    g.position.set(Math.cos(a) * (BASE_R + .08), BASE_H - .35, Math.sin(a) * (BASE_R + .08)); g.lookAt(g.position.clone().setY(BASE_H - .35).multiplyScalar(2)); cakeG.add(g);
+  }
+
+  const kitty = new THREE.Group(); kitty.position.y = BASE_H + 1.35; cakeG.add(kitty);
+  const white = std('#ffffff', .4), black = std('#151515', .3);
+  const head = new THREE.Mesh(new THREE.SphereGeometry(1, 48, 32), white); head.scale.set(1.95, 1.4, 1.45); kitty.add(head);
+  for (const s of [-1, 1]) {
+    const ear = new THREE.Mesh(new THREE.ConeGeometry(.55, .95, 24), white); ear.position.set(s * 1.25, 1.2, 0); ear.rotation.z = -s * .45; ear.scale.z = .8; kitty.add(ear);
+    const eye = new THREE.Mesh(new THREE.SphereGeometry(.17, 20, 14), black); eye.scale.set(.85, 1.25, .5); eye.position.set(s * .75, .05, 1.36); kitty.add(eye);
+    for (let k = -1; k <= 1; k++) {
+      const w = new THREE.Mesh(new THREE.CylinderGeometry(.025, .025, .85, 6), black); w.rotation.z = Math.PI / 2 + k * .18 * s;
+      w.position.set(s * 1.95, -.25 + k * .2, .55); kitty.add(w);
+    }
+  }
+  const nose = new THREE.Mesh(new THREE.SphereGeometry(.13, 16, 12), std('#ffcf3a', .35)); nose.scale.set(1.3, .9, .7); nose.position.set(0, -.3, 1.42); kitty.add(nose);
+  const bow = new THREE.Group();
+  for (const s of [-1, 1]) { const l = new THREE.Mesh(new THREE.SphereGeometry(.42, 20, 14), bm); l.scale.set(1.35, .95, .6); l.position.x = s * .5; l.rotation.z = s * -.4; bow.add(l); }
+  const knot = new THREE.Mesh(new THREE.SphereGeometry(.24, 16, 12), std('#c51f3a', .5)); bow.add(knot);
+  bow.position.set(1.15, 1.3, .45); bow.rotation.z = -.35; kitty.add(bow);
+  cakeG.userData.kitty = kitty;
+
+  const r = rng(5), sg = new THREE.CapsuleGeometry(.04, .14, 2, 6);
+  for (let i = 0; i < 90; i++) {
+    const a = r() * Math.PI * 2, R = 2.1 + r() * .75;
+    const s = new THREE.Mesh(sg, std(pick(r, PARTY))); s.position.set(Math.cos(a) * R, BASE_H + .06, Math.sin(a) * R); s.rotation.set(Math.PI / 2, 0, r() * 6); cakeG.add(s);
+  }
 }
-const glowTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d'); const g = x.createRadialGradient(32, 32, 0, 32, 32, 32); g.addColorStop(0, 'rgba(255,220,120,1)'); g.addColorStop(.3, 'rgba(255,170,60,.5)'); g.addColorStop(1, 'rgba(255,140,40,0)'); x.fillStyle = g; x.fillRect(0, 0, 64, 64); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; })();
+const glowTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d'); const g = x.createRadialGradient(32, 32, 0, 32, 32, 32); g.addColorStop(0, 'rgba(255,225,130,1)'); g.addColorStop(.3, 'rgba(255,170,60,.5)'); g.addColorStop(1, 'rgba(255,140,40,0)'); x.fillStyle = g; x.fillRect(0, 0, 64, 64); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; })();
 const candles = [];
 {
-  const cg = new THREE.CylinderGeometry(.075, .075, .9, 8), fg = new THREE.SphereGeometry(.1, 10, 8), fmat = new THREE.MeshBasicMaterial({ color: '#ffd45a' });
-  const cols = ['#a8e6c1', '#ffd66b', '#cdb9ff', '#ff8fb6', '#ffffff'];
-  const ring = (n, R, y, off) => { for (let i = 0; i < n; i++) {
-    const a = i / n * Math.PI * 2 + off, g = new THREE.Group(); g.position.set(Math.cos(a) * R, y, Math.sin(a) * R);
-    const c = new THREE.Mesh(cg, new THREE.MeshStandardMaterial({ color: cols[(i + n) % 5] })); c.position.y = .45; g.add(c);
-    const f = new THREE.Group(); f.position.y = 1.0;
-    const fl = new THREE.Mesh(fg, fmat); fl.scale.set(1, 1.9, 1); f.add(fl);
-    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true })); sp.scale.setScalar(.75); f.add(sp);
-    g.add(f); cakeG.add(g); candles.push({ f, lit: true, ph: Math.random() * 10 });
-  } };
-  ring(15, 2.0, 3.2, 0); ring(10, 1.45, 3.95, .3);
-}
-const cakeLight = new THREE.PointLight(0xffb35a, 18, 14, 1.6); cakeLight.position.set(0, 6, 1); cake.scene.add(cakeLight);
-const smoke = [], smokeMat = new THREE.MeshBasicMaterial({ color: '#cccccc', transparent: true, opacity: .5, depthWrite: false }), smokeGeo = new THREE.SphereGeometry(.12, 8, 6);
-const cakeTarget = new THREE.Vector3(0, 4.6, 0);
-cake.onResize = (w, h) => fitCamera(cake.camera, 4.6, 6.2, cakeTarget, new THREE.Vector3(0, .45, 1));
-cake.onResize(cake.canvas.clientWidth, cake.canvas.clientHeight);
-let lean = 0, analyser = null, abuf = null, blowCool = 0, cakeDone = false;
-const cakeStatus = document.getElementById('cakeStatus');
-function blowOut(n) {
-  const lit = candles.filter((c) => c.lit); if (!lit.length) return;
-  lean = Math.min(lean + .5, 1.1);
-  for (let i = 0; i < n && lit.length; i++) {
-    const c = lit.splice(Math.floor(Math.random() * lit.length), 1)[0]; c.lit = false; c.f.visible = false;
-    const p = new THREE.Vector3(); c.f.getWorldPosition(p);
-    for (let k = 0; k < 4; k++) { const s = new THREE.Mesh(smokeGeo, smokeMat.clone()); s.position.copy(p); s.userData = { life: 1.4 + Math.random(), vx: (Math.random() - .5) * .4, d: k * .15 }; cake.scene.add(s); smoke.push(s); }
+  const cg = new THREE.CylinderGeometry(.07, .07, .85, 10), fg = new THREE.SphereGeometry(.1, 12, 10);
+  const fmat = new THREE.MeshBasicMaterial({ color: '#ffd45a' }), core = new THREE.MeshBasicMaterial({ color: '#fff6d8' });
+  const cols = ['#ff8fb6', '#ffffff', '#e8304a', '#ffb3cf', '#cdb9ff'];
+  for (let i = 0; i < 25; i++) {
+    const a = i / 25 * Math.PI * 2, g = new THREE.Group(); g.position.set(Math.cos(a) * 2.55, BASE_H, Math.sin(a) * 2.55);
+    const c = new THREE.Mesh(cg, std(cols[i % 5], .5)); c.position.y = .42; g.add(c);
+    const f = new THREE.Group(); f.position.y = .98;
+    const fl = new THREE.Mesh(fg, fmat); fl.scale.set(1, 2, 1); f.add(fl);
+    const fc = new THREE.Mesh(fg, core); fc.scale.set(.5, 1.1, .5); fc.position.y = -.05; f.add(fc);
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true })); sp.scale.setScalar(.8); f.add(sp);
+    g.add(f); cakeG.add(g); candles.push({ g, f, lit: true, ph: Math.random() * 10 });
   }
+}
+const cakeLight = new THREE.PointLight(0xffb35a, 18, 16, 1.6); cakeLight.position.set(0, 5, 2); cake.scene.add(cakeLight);
+const smoke = [], smokeMat = new THREE.MeshBasicMaterial({ color: '#bbbbbb', transparent: true, opacity: .5, depthWrite: false }), smokeGeo = new THREE.SphereGeometry(.12, 8, 6);
+const cakeTarget = new THREE.Vector3(0, 3.1, 0);
+cake.onResize = (w, h) => { fitCamera(cake.camera, 4.8, 7.2, cakeTarget, new THREE.Vector3(0, .5, 1)); cake.camera.setViewOffset(w, h, 0, -h * .12, w, h); };
+cake.onResize(cake.canvas.clientWidth, cake.canvas.clientHeight);
+let lean = 0, blowPower = 0, cakeDone = false, mic = null;
+const cakeStatus = document.getElementById('cakeStatus'), meter = document.getElementById('meter'), meterFill = document.getElementById('meterFill');
+const tmpV = new THREE.Vector3();
+function frontLit() {
+  return candles.filter((c) => c.lit).map((c) => { c.f.getWorldPosition(tmpV); return [tmpV.z, c]; }).sort((a, b) => b[0] - a[0]).map((x) => x[1]);
+}
+function snuff(c) {
+  c.lit = false; c.f.visible = false; c.f.getWorldPosition(tmpV);
+  for (let k = 0; k < 5; k++) { const s = new THREE.Mesh(smokeGeo, smokeMat.clone()); s.position.copy(tmpV); s.userData = { life: 1.4 + Math.random(), vx: (Math.random() - .5) * .4, d: k * .12 }; cake.scene.add(s); smoke.push(s); }
+}
+function blowOut(n) {
+  const lit = frontLit(); if (!lit.length) return;
+  for (let i = 0; i < n && i < lit.length; i++) snuff(Math.random() < .75 ? lit[i] : lit[Math.floor(Math.random() * lit.length)]);
   const left = candles.filter((c) => c.lit).length;
-  cakeStatus.textContent = left ? `${left} candle${left > 1 ? 's' : ''} still burning 🔥` : 'wish locked in ✨ (no telling!)';
+  cakeStatus.textContent = left ? `${left} candle${left > 1 ? 's' : ''} left… keep going! 🔥` : 'wish locked in ✨ (no telling!)';
   if (!left && !cakeDone) {
     cakeDone = true; sfx('yay');
     fire({ particleCount: 160, spread: 110, origin: { y: .6 }, colors: PARTY });
     setTimeout(() => fire({ particleCount: 100, angle: 60, spread: 70, origin: { x: 0, y: .8 }, colors: PARTY }), 250);
     setTimeout(() => fire({ particleCount: 100, angle: 120, spread: 70, origin: { x: 1, y: .8 }, colors: PARTY }), 400);
+    gsap.fromTo(cakeG.userData.kitty.position, { y: BASE_H + 1.35 }, { y: BASE_H + 2.2, duration: .35, yoyo: true, repeat: 3, ease: 'power2.out' });
     blowBtn.textContent = '🕯 RELIGHT';
+    if (mic) stopMic();
   }
 }
 const blowBtn = document.getElementById('blowBtn'), micBtn = document.getElementById('micBtn');
-blowBtn.onclick = () => {
-  ensureAudio();
-  if (cakeDone) { candles.forEach((c) => { c.lit = true; c.f.visible = true; }); cakeDone = false; blowBtn.textContent = '💨 TAP TO BLOW'; cakeStatus.textContent = '25 candles still burning 🔥'; return; }
-  sfx('whoosh'); blowOut(4 + Math.floor(Math.random() * 4));
-};
+function relight() {
+  candles.forEach((c) => { c.lit = true; c.f.visible = true; gsap.fromTo(c.f.scale, { x: 0, y: 0, z: 0 }, { x: 1, y: 1, z: 1, duration: .5, delay: Math.random() * .4, ease: 'back.out(3)' }); });
+  cakeDone = false; blowBtn.textContent = '💨 TAP TO BLOW'; cakeStatus.textContent = '25 candles burning 🔥 make a wish first!';
+}
+function puff() { ensureAudio(); if (cakeDone) return relight(); sfx('whoosh'); lean = 1.3; blowOut(3 + Math.floor(Math.random() * 3)); }
+blowBtn.onclick = puff;
+let cakeTap = null;
+cake.canvas.addEventListener('pointerdown', (e) => cakeTap = { x: e.clientX, y: e.clientY });
+cake.canvas.addEventListener('pointerup', (e) => { if (cakeTap && Math.hypot(e.clientX - cakeTap.x, e.clientY - cakeTap.y) < 8 && !cakeDone) puff(); cakeTap = null; });
+function stopMic() {
+  mic.stream.getTracks().forEach((t) => t.stop()); mic = null; meter.classList.remove('on');
+  micBtn.textContent = '🎤 BLOW INTO MIC'; if (musicWasOn) setMusic(true);
+}
+let musicWasOn = false;
 micBtn.onclick = async () => {
+  if (mic) return stopMic();
+  ensureAudio();
+  if (cakeDone) relight();
   try {
-    ensureAudio();
-    const s = await navigator.mediaDevices.getUserMedia({ audio: true });
-    analyser = actx.createAnalyser(); analyser.fftSize = 512; abuf = new Uint8Array(analyser.fftSize);
-    actx.createMediaStreamSource(s).connect(analyser);
-    micBtn.textContent = '🎤 LISTENING… BLOW!';
-  } catch (e) { micBtn.textContent = 'MIC BLOCKED · TAP INSTEAD'; }
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+    musicWasOn = musicOn; if (musicOn) setMusic(false);
+    const an = actx.createAnalyser(); an.fftSize = 1024; an.smoothingTimeConstant = .2;
+    actx.createMediaStreamSource(stream).connect(an);
+    mic = { stream, an, buf: new Float32Array(an.fftSize), freq: new Uint8Array(an.frequencyBinCount), base: 0, calib: .8, n: 0 };
+    meter.classList.add('on'); micBtn.textContent = '🤫 SHH… CALIBRATING';
+  } catch (e) { micBtn.textContent = 'MIC BLOCKED · TAP THE CAKE'; }
 };
+function micStrength(dt) {
+  mic.an.getFloatTimeDomainData(mic.buf);
+  let s = 0; for (const v of mic.buf) s += v * v; const rms = Math.sqrt(s / mic.buf.length);
+  mic.an.getByteFrequencyData(mic.freq);
+  const hz = actx.sampleRate / mic.an.fftSize; let lo = 0, n = 0;
+  for (let i = Math.floor(80 / hz); i < Math.floor(1200 / hz); i++) { lo += mic.freq[i]; n++; }
+  const level = rms * .6 + (lo / n / 255) * .4;
+  if (mic.calib > 0) { mic.calib -= dt; mic.base += level; mic.n++; if (mic.calib <= 0) { mic.base /= mic.n; micBtn.textContent = '🌬 BLOW NOW! (TAP TO STOP)'; } return 0; }
+  const thr = Math.max(mic.base * 2.2, mic.base + .05);
+  meterFill.style.transform = `scaleX(${Math.min(level / (thr * 2), 1)})`;
+  meterFill.style.background = level > thr ? 'var(--hot)' : 'var(--ink)';
+  return Math.max(0, Math.min((level - thr) / thr, 1.5));
+}
 cake.update = (dt, t) => {
-  cakeG.rotation.y = t * .25;
-  let rms = 0;
-  if (analyser) {
-    analyser.getByteTimeDomainData(abuf); let s = 0; for (const v of abuf) { const d = (v - 128) / 128; s += d * d; } rms = Math.sqrt(s / abuf.length);
-    if (rms > .09 && t > blowCool) { blowOut(1 + Math.floor(rms * 14)); blowCool = t + .15; }
+  cakeG.rotation.y = Math.sin(t * .45) * .55;
+  const k = cakeG.userData.kitty; k.rotation.z = Math.sin(t * 1.6) * .05;
+  let str = 0;
+  if (mic) {
+    str = micStrength(dt);
+    if (str > 0 && !cakeDone) { blowPower += str * dt; while (blowPower > .07) { blowPower -= .07; blowOut(1); } }
+    else blowPower = Math.max(0, blowPower - dt * .05);
   }
-  lean = Math.max(lean - dt * 1.8, rms * 2);
+  lean = Math.max(lean - dt * 2, str * 1.2);
   const litN = candles.filter((c) => c.lit).length;
-  cakeLight.intensity = 2 + litN * .7 + Math.sin(t * 20) * .6;
-  candles.forEach((c) => { if (!c.lit) return; const fl = 1 + Math.sin(t * 18 + c.ph) * .12 + Math.sin(t * 31 + c.ph) * .08; c.f.scale.set(1, fl * (1 - lean * .3), 1); c.f.rotation.z = Math.sin(t * 6 + c.ph) * .08 + lean * .7; });
+  cakeLight.intensity = 1.5 + litN * .65 + Math.sin(t * 20) * .5;
+  candles.forEach((c) => { if (!c.lit) return; const fl = 1 + Math.sin(t * 18 + c.ph) * .12 + Math.sin(t * 31 + c.ph) * .08 + str * Math.sin(t * 50 + c.ph) * .3; c.f.scale.y = fl * (1 - Math.min(lean, 1) * .35); c.f.rotation.x = -Math.min(lean, 1.1) * .9 + Math.sin(t * 6 + c.ph) * .06; });
   for (let i = smoke.length - 1; i >= 0; i--) {
     const s = smoke[i], u = s.userData; if (u.d > 0) { u.d -= dt; continue; }
     u.life -= dt; s.position.y += dt * 1.1; s.position.x += u.vx * dt; s.scale.setScalar(1 + (2 - u.life) * 1.5); s.material.opacity = Math.max(0, u.life * .3);
@@ -717,7 +806,7 @@ cake.update = (dt, t) => {
 /* ---------- piñata ---------- */
 const pin = makeStage(document.getElementById('pinCanvas'));
 const pinTarget = new THREE.Vector3(0, 0, 0);
-pin.onResize = (w, h) => fitCamera(pin.camera, 13, 20, pinTarget, new THREE.Vector3(0, .12, 1));
+pin.onResize = (w, h) => { fitCamera(pin.camera, 13, 24, pinTarget, new THREE.Vector3(0, .12, 1)); pin.camera.setViewOffset(w, h, 0, -h * .14, w, h); };
 pin.onResize(pin.canvas.clientWidth, pin.canvas.clientHeight);
 let pinPivot, pinMesh, rope, hits = 0, ang = 0, angV = 0, angX = 0, angXV = 0, squash = 0, exploded = null;
 const HITS = 7, pinStatus = document.getElementById('pinStatus'), prize = document.getElementById('prize');
@@ -725,7 +814,7 @@ document.getElementById('prizeList').innerHTML = CONFIG.prizes.map((p) => `<li>$
 function buildPinata() {
   const v = new Vox();
   kittyHead(v, -6, true);
-  const rowC = ['#ff8fb6', '#ffd66b', '#a8e6c1', '#cdb9ff', '#ff5c8f'];
+  const rowC = ['#ff8fb6', '#ffd66b', '#ffe27a', '#cdb9ff', '#ff5c8f'];
   for (let y = -16; y <= -11; y++) for (let x = -4; x <= 4; x++) for (let z = -4; z <= 4; z++) if (x * x + z * z <= 13) v.set(x, y, z, rowC[(y + 16) % 5]);
   const r = rng(9);
   for (let i = 0; i < 14; i++) { const a = i / 14 * Math.PI * 2, x = Math.round(Math.cos(a) * 3.3), z = Math.round(Math.sin(a) * 3.3), L = 2 + Math.floor(r() * 3); for (let k = 1; k <= L; k++) v.set(x, -16 - k, z, rowC[(i + k) % 5]); }
@@ -803,17 +892,17 @@ document.getElementById('row2').innerHTML = mk(CONFIG.marquee2);
 const track = document.getElementById('track');
 CONFIG.photos.forEach((p) => {
   const el = document.createElement('div'); el.className = 'pol'; el.style.transform = `rotate(${p.rot}deg)`;
-  el.innerHTML = `<div class="card"><div class="tape"></div><div class="face"><div class="ph"><img src="${p.src}" alt="Riya" loading="eager"></div><div class="cap">${p.cap}</div></div><div class="back"><p>${p.back}</p><small>— ${CONFIG.from.toUpperCase()}</small></div></div>`;
+  el.innerHTML = `<div class="card"><div class="tape"></div><div class="face"><div class="ph"><div class="img" role="img" aria-label="Riya" style="background-image:url(${p.src})"></div></div><div class="cap">${p.cap}</div></div><div class="back"><p>${p.back}</p><small>— ${CONFIG.from.toUpperCase()}</small></div></div>`;
   el.onclick = () => el.classList.toggle('flip');
   track.appendChild(el);
 });
 track.insertAdjacentHTML('beforeend', '<div class="g-end">and<br>many<br>more ♡</div>');
 const paper = document.getElementById('paper');
-paper.innerHTML = CONFIG.letter.map((l) => `<p>${l}</p>`).join('') + `<p class="sign">Forever yours,<br>${CONFIG.from} ♡</p>`;
+paper.innerHTML = CONFIG.letter.map((l) => `<p>${l}</p>`).join('') + `<p class="sign">~ ${CONFIG.from}</p>`;
 const wp = document.getElementById('wordsP');
 wp.innerHTML = wp.textContent.split(' ').map((w) => w.startsWith('*') ? `<span class="w hl">${w.replace(/\*/g, '')}</span>` : `<span class="w">${w}</span>`).join('');
 // keep italic phrases joined: re-merge consecutive hl spans not needed for single words
-function split(el) { el.innerHTML = el.textContent.split('').map((c) => c === ' ' ? ' ' : `<span class="ch">${c}</span>`).join(''); return el.querySelectorAll('.ch'); }
+function split(el) { el.innerHTML = el.textContent.split(' ').map((w) => `<span style="white-space:nowrap;display:inline-block">${w.split('').map((c) => `<span class="ch">${c}</span>`).join('')}</span>`).join(' '); return el.querySelectorAll('.ch'); }
 const l1 = split(document.querySelector('.hero-title .l1')), l2 = split(document.querySelector('.hero-title .l2'));
 
 /* counter */
@@ -823,6 +912,8 @@ function tick() { const s = (Date.now() - born) / 1000; [s / 86400, s / 3600, s 
 tick(); setInterval(tick, 1000);
 
 /* ---------- scroll choreography ---------- */
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+scrollTo(0, 0);
 gsap.registerPlugin(ScrollTrigger);
 const lenis = new Lenis({ lerp: .09, smoothWheel: true });
 lenis.stop();
@@ -836,7 +927,7 @@ gsap.set('.sticker', { scale: 0, rotate: -90 });
 const stack = (sel) => ScrollTrigger.create({ trigger: sel, start: 'bottom bottom', end: () => '+=' + innerHeight, pin: true, pinSpacing: false });
 stack('#hero');
 gsap.to('#hero .stage', { scale: .82, opacity: .25, borderRadius: 40, ease: 'none', scrollTrigger: { start: 0, end: () => innerHeight, scrub: true } });
-gsap.to(l1, { yPercent: -260, rotate: (i) => (i % 2 ? 1 : -1) * 30, stagger: .02, ease: 'none', scrollTrigger: { start: 0, end: () => innerHeight * .6, scrub: true } });
+gsap.to('.hero-title .sub, .hero-ui', { autoAlpha: 0, ease: 'none', scrollTrigger: { start: 0, end: () => innerHeight * .3, scrub: true } });
 
 gsap.fromTo('#row1', { xPercent: 0 }, { xPercent: -45, ease: 'none', scrollTrigger: { trigger: '#marquee', start: 'top bottom', end: 'bottom top', scrub: true } });
 gsap.fromTo('#row2', { xPercent: -45 }, { xPercent: 0, ease: 'none', scrollTrigger: { trigger: '#marquee', start: 'top bottom', end: 'bottom top', scrub: true } });
@@ -852,7 +943,7 @@ gsap.to('#words .w', { opacity: 1, stagger: .5, ease: 'none', scrollTrigger: { t
 const gTween = gsap.to(track, { x: () => -(track.scrollWidth - innerWidth), ease: 'none', scrollTrigger: { trigger: '#gallery', start: 'top top', end: () => '+=' + (track.scrollWidth - innerWidth), pin: true, scrub: 1, invalidateOnRefresh: true } });
 document.querySelectorAll('.pol').forEach((p) => {
   gsap.from(p, { y: 200, rotate: 25, opacity: 0, ease: 'back.out(1.4)', duration: 1, scrollTrigger: { trigger: p, containerAnimation: gTween, start: 'left 95%' } });
-  gsap.fromTo(p.querySelector('img'), { xPercent: -8 }, { xPercent: 8, ease: 'none', scrollTrigger: { trigger: p, containerAnimation: gTween, start: 'left right', end: 'right left', scrub: true } });
+  gsap.fromTo(p.querySelector('.img'), { xPercent: -8 }, { xPercent: 8, ease: 'none', scrollTrigger: { trigger: p, containerAnimation: gTween, start: 'left right', end: 'right left', scrub: true } });
 });
 
 stack('#cake');
@@ -882,11 +973,12 @@ function openGift() {
   fire({ particleCount: 180, spread: 120, startVelocity: 45, origin: { y: .5 }, colors: PARTY });
   gsap.timeline({ delay: .7 })
     .to('#gate', { clipPath: 'circle(0% at 50% 50%)', duration: 1.1, ease: 'expo.inOut' })
-    .add(() => { document.getElementById('gate').remove(); document.body.classList.remove('locked'); lenis.start(); ScrollTrigger.refresh(); })
+    .add(() => { document.getElementById('gate').remove(); document.body.classList.remove('locked'); scrollTo(0, 0); lenis.scrollTo(0, { immediate: true, force: true }); lenis.start(); ScrollTrigger.refresh(); })
     .to(l1, { yPercent: 0, rotate: 0, opacity: 1, stagger: .035, duration: 1, ease: 'expo.out' }, '-=.4')
     .to(l2, { yPercent: 0, rotate: 0, opacity: 1, stagger: .07, duration: 1.3, ease: 'elastic.out(1,.55)' }, '-=.8')
     .to('.sticker', { scale: 1, rotate: 12, duration: 1, ease: 'back.out(2)' }, '-=1')
-    .add(() => fire({ particleCount: 90, spread: 100, origin: { y: .3 }, colors: PARTY }), '-=.6');
+    .add(() => fire({ particleCount: 90, spread: 100, origin: { y: .3 }, colors: PARTY }), '-=.6')
+    .add(() => document.querySelectorAll('.tag').forEach((t) => t.classList.add('show')), '+=.2');
 }
 gsap.set('#gate', { clipPath: 'circle(150% at 50% 50%)' });
 document.getElementById('openBtn').onclick = openGift;
