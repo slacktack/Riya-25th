@@ -403,44 +403,51 @@ function bell(f, t, dur, vol = .3, out = master) {
     o.connect(g); g.connect(out); o.start(t); o.stop(end + .05);
   });
 }
-function pluck(f, t, vol, len = .5, out = master) {
-  const o = actx.createOscillator(), g = actx.createGain(), lp = actx.createBiquadFilter();
-  o.type = 'triangle'; o.frequency.value = f; lp.type = 'lowpass'; lp.frequency.value = 1500;
-  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + .008); g.gain.exponentialRampToValueAtTime(.0001, t + len);
-  o.connect(lp); lp.connect(g); g.connect(out); o.start(t); o.stop(t + len + .05);
-}
-function pad(fs, t, len, vol, out = master) {
-  fs.forEach((f) => [-7, 7].forEach((c) => {
-    const o = actx.createOscillator(), g = actx.createGain(), lp = actx.createBiquadFilter();
-    o.type = 'sawtooth'; o.frequency.value = f * 2; o.detune.value = c; lp.type = 'lowpass'; lp.frequency.value = 800;
-    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + len * .45); g.gain.linearRampToValueAtTime(0, t + len + .4);
-    o.connect(lp); lp.connect(g); g.connect(out); o.start(t); o.stop(t + len + .5);
-  }));
-}
 function tone(f, t, dur, vol = .3, out = master) { bell(f, t, dur, vol, out); }
-function playSongOnce() {
-  const beat = .44, t0 = actx.currentTime + .15; let t = t0;
-  for (const [n, d] of SONG) { bell(n2f(n), t, d * beat, .3); t += d * beat; }
+// Song is rendered once offline, then looped through one <audio> element (no overlap, plays in iOS silent mode).
+const BEAT = .43, SONG_LEN = 25 * BEAT;
+function renderSong() {
+  const sr = 44100, total = SONG_LEN + 2.2, oc = new OfflineAudioContext(2, Math.ceil(sr * total), sr);
+  const out = oc.createGain(); out.gain.value = .55;
+  const comp = oc.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 3; out.connect(comp); comp.connect(oc.destination);
+  const rev = oc.createConvolver(), il = Math.floor(sr * 1.8), ir = oc.createBuffer(2, il, sr);
+  for (let c = 0; c < 2; c++) { const d = ir.getChannelData(c); for (let i = 0; i < il; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / il, 4); }
+  rev.buffer = ir; const wet = oc.createGain(); wet.gain.value = .18; out.connect(rev); rev.connect(wet); wet.connect(comp);
+  const env = (g, t, peak, a, end) => { g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(peak, t + a); g.gain.exponentialRampToValueAtTime(.0001, end); };
+  const osc = (type, f, t, end, g, det = 0) => { const o = oc.createOscillator(); o.type = type; o.frequency.value = f; o.detune.value = det; o.connect(g); o.start(t); o.stop(end + .02); };
+  const box = (f, t, d, v) => { const end = t + Math.max(1.2, d * 2); [[1, 1, end], [2, .22, t + .5], [3, .05, t + .25]].forEach(([m, a, e]) => { const g = oc.createGain(); g.connect(out); env(g, t, v * a, .004, e); osc('sine', f * m, t, e, g); }); };
+  const soft = (f, t, len, v) => { const g = oc.createGain(), lp = oc.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 900; g.connect(lp); lp.connect(out); env(g, t, v, .01, t + len); osc('triangle', f, t, t + len, g); };
+  const pad = (fs, t, len, v) => fs.forEach((f) => { const g = oc.createGain(), lp = oc.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 700; g.connect(lp); lp.connect(out); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(v, t + len * .4); g.gain.linearRampToValueAtTime(0, t + len); [-5, 5].forEach((dt) => osc('triangle', f * 2, t, t + len, g, dt)); });
+  const t0 = .02; let t = t0;
+  for (const [n, d] of SONG) { box(n2f(n) * 2, t, d * BEAT, .22); t += d * BEAT; }
+  const CH = [['C3','E3','G3'],['G2','B2','F3'],['G2','B2','F3'],['C3','E3','G3'],['C3','E3','G3'],['F2','A2','C3'],['C3','E3','G3'],['C3','E3','G3']];
+  const BS = ['C2','G2','G2','C2','C2','F2','C2','C2'];
   for (let b = 0; b < 8; b++) {
-    const bt = t0 + beat * (1 + b * 3);
-    pluck(n2f(BASS[b]), bt, .38, 1.1);
-    CHORDS[b].forEach((n) => { pluck(n2f(n) * 2, bt + beat, .06, .4); pluck(n2f(n) * 2, bt + beat * 2, .05, .4); });
-    pad(CHORDS[b].map(n2f), bt, beat * 3, .01);
+    const bt = t0 + BEAT * (1 + b * 3), ch = b === 6 ? [CH[6], ['G2','B2','F3']] : [CH[b], CH[b]];
+    soft(n2f(BS[b]) * 2, bt, 1, .28);
+    ch[0].forEach((n) => soft(n2f(n) * 2, bt + BEAT, .35, .05)); ch[1].forEach((n) => soft(n2f(n) * 2, bt + BEAT * 2, .35, .05));
+    pad(CH[b].map(n2f), bt, BEAT * 3, .018);
   }
-  ['C6', 'E6', 'G6', 'C7', 'E7'].forEach((n, i) => bell(n2f(n), t - beat * 2.4 + i * .1, .4, .07));
-  return (t - actx.currentTime) * 1000;
+  ['C5', 'E5', 'G5', 'C6'].forEach((n, i) => box(n2f(n) * 2, t - BEAT * 1.5 + i * .09, .3, .05));
+  return oc.startRendering().then((buf) => {
+    const n = buf.length, data = new DataView(new ArrayBuffer(44 + n * 4)), ch0 = buf.getChannelData(0), ch1 = buf.getChannelData(1);
+    const w = (o, str) => { for (let i = 0; i < str.length; i++) data.setUint8(o + i, str.charCodeAt(i)); };
+    w(0, 'RIFF'); data.setUint32(4, 36 + n * 4, true); w(8, 'WAVE'); w(12, 'fmt '); data.setUint32(16, 16, true); data.setUint16(20, 1, true); data.setUint16(22, 2, true);
+    data.setUint32(24, sr, true); data.setUint32(28, sr * 4, true); data.setUint16(32, 4, true); data.setUint16(34, 16, true); w(36, 'data'); data.setUint32(40, n * 4, true);
+    for (let i = 0, o = 44; i < n; i++, o += 4) { data.setInt16(o, Math.max(-1, Math.min(1, ch0[i])) * 32767, true); data.setInt16(o + 2, Math.max(-1, Math.min(1, ch1[i])) * 32767, true); }
+    const a = new Audio(URL.createObjectURL(new Blob([data], { type: 'audio/wav' }))); a.loop = true; a.preload = 'auto'; a.volume = .9; return a;
+  });
 }
-function loopSong() {
-  if (!musicOn) { looping = false; return; }
-  looping = true; setTimeout(loopSong, playSongOnce() + 1800);
-}
+let song = null;
+const songReady = (async () => renderSong())().then((a) => { song = a; if (musicOn) a.play().catch(() => {}); return a; }).catch(() => null);
 const musicBtn = document.getElementById('music');
 function setMusic(on) {
-  ensureAudio(); musicOn = on;
-  master.gain.setTargetAtTime(on ? .32 : 0, actx.currentTime, .08);
+  musicOn = on;
   musicBtn.textContent = on ? '♪ MUSIC: ON' : '♪ MUSIC: OFF';
-  if (on && !looping) loopSong();
+  if (!song) return;
+  if (on) song.play().catch(() => { musicOn = false; musicBtn.textContent = '♪ TAP FOR MUSIC'; }); else song.pause();
 }
+function restartSong() { if (song) { song.currentTime = 0; } setMusic(true); }
 musicBtn.onclick = () => setMusic(!musicOn);
 function sfx(kind) {
   if (!actx) return;
@@ -1088,7 +1095,7 @@ ScrollTrigger.create({ trigger: '#finale', start: 'top 40%', onEnter: () => {
   const end = Date.now() + 2200;
   (function f() { fire({ particleCount: 6, angle: 60, spread: 60, origin: { x: 0, y: .7 }, colors: PARTY }); fire({ particleCount: 6, angle: 120, spread: 60, origin: { x: 1, y: .7 }, colors: PARTY }); if (Date.now() < end) requestAnimationFrame(f); })();
 } });
-document.getElementById('replay').onclick = () => { if (!musicOn) setMusic(true); else playSongOnce(); };
+document.getElementById('replay').onclick = restartSong;
 document.getElementById('toTop').onclick = () => lenis.scrollTo(0, { duration: 2.4 });
 addEventListener('load', () => ScrollTrigger.refresh());
 
